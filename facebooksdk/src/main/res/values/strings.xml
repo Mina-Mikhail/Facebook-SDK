@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="app_name" translatable="false">Facebook SDK</string>
+  <string name="com.mina.mikhail.facebook.sdk.facebookAppId" translatable="false" tools:ignore="ExtraTranslation">com.facebook.sdk.ApplicationId</string>
+  <string name="com.mina.mikhail.facebook.sdk.facebookAppScheme" translatable="false" tools:ignore="ExtraTranslation">com.facebook.sdk.facebookAppScheme</string>
+
+  <!-- Error Messages -->
+  <string name="no_internet">No Internet Connection</string>
+  <string name="user_cancelled">User Cancelled</string>
+  <string name="some_error">Some error occurred, Please try again later</string>
+
+</resources>
