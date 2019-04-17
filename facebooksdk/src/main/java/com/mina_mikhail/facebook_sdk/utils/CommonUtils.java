@@ -30,8 +30,6 @@ import com.mina_mikhail.facebook_sdk.R;
 
 public final class CommonUtils {
 
-  private static final String TAG = "CommonUtils";
-
   private CommonUtils() {
     // This utility class is not publicly instantiable
   }

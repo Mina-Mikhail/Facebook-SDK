@@ -5,10 +5,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.facebook.FacebookSdk;
-import com.mina_mikhail.FacebookData;
 import com.mina_mikhail.facebook_sdk.callback.FacebookResponse;
 import com.mina_mikhail.facebook_sdk.utils.CommonUtils;
 import java.util.Arrays;
+import java.util.List;
+
+import static com.mina_mikhail.facebook_sdk.utils.Constants.FB_USER_EMAIL;
+import static com.mina_mikhail.facebook_sdk.utils.Constants.FB_USER_PROFILE_PIC;
 
 public class Facebook {
 
@@ -16,7 +19,8 @@ public class Facebook {
   private static volatile Facebook INSTANCE;
 
   private Context context;
-  private FacebookData facebookSocialData;
+  private List<String> permissions;
+  private FacebookResponse response;
 
   public static synchronized Facebook getInstance() {
     if (INSTANCE == null) {
@@ -25,28 +29,27 @@ public class Facebook {
     return INSTANCE;
   }
 
-  public void connect(Context context, @NonNull FacebookResponse response) {
-    Context appContext = context.getApplicationContext();
-    getInstance().context = context;
-    getInstance().initFacebook(appContext);
-
-    connectFacebook(response);
+  public void logIn(Context context, @NonNull FacebookResponse response) {
+    this.context = context;
+    this.response = response;
+    initFacebook();
   }
 
-  private void initFacebook(Context appContext) {
-    String fbAppId = CommonUtils.getMetaDataValue(appContext,
-        appContext.getString(R.string.com_mina_mikhail_facebook_sdk_facebookAppId));
+  private void initFacebook() {
+    String fbAppId =
+        CommonUtils.getMetaDataValue(context, context.getString(R.string.facebookAppId));
     if (!TextUtils.isEmpty(fbAppId)) {
       FacebookSdk.setApplicationId(fbAppId);
+      permissions = Arrays.asList(FB_USER_EMAIL, FB_USER_PROFILE_PIC);
+      FacebookLogInActivity.open(context);
     }
   }
 
-  private void connectFacebook(@NonNull FacebookResponse response) {
-    facebookSocialData = new FacebookData(Arrays.asList("email", "public_profile"), response);
-    FacebookLogInActivity.start(context);
+  List<String> getPermissions() {
+    return permissions;
   }
 
-  FacebookData getFacebookData() {
-    return facebookSocialData;
+  FacebookResponse getResponse() {
+    return response;
   }
 }

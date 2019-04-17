@@ -7,40 +7,21 @@ package com.mina_mikhail.facebook_sdk.data.model;
  * *
  */
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class FacebookUser
-    implements Parcelable {
+public class FacebookUser {
 
   private String accessToken;
   private String userID;
   private String fullName;
   private String userEmail;
-  private String userImage;
+  private String userProfilePicture;
 
-  public FacebookUser() {
+  public String getAccessToken() {
+    return accessToken;
   }
 
-  private FacebookUser(Parcel in) {
-    accessToken = in.readString();
-    userID = in.readString();
-    fullName = in.readString();
-    userEmail = in.readString();
-    userImage = in.readString();
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
   }
-
-  public static final Creator<FacebookUser> CREATOR = new Creator<FacebookUser>() {
-    @Override
-    public FacebookUser createFromParcel(Parcel in) {
-      return new FacebookUser(in);
-    }
-
-    @Override
-    public FacebookUser[] newArray(int size) {
-      return new FacebookUser[size];
-    }
-  };
 
   public String getUserID() {
     return userID;
@@ -66,37 +47,11 @@ public class FacebookUser
     this.userEmail = userEmail;
   }
 
-  public String getUserImage() {
-    return userImage;
+  public String getUserProfilePicture() {
+    return userProfilePicture;
   }
 
-  public void setUserImage(String userImage) {
-    this.userImage = userImage;
-  }
-
-  public String getAccessToken() {
-    return accessToken;
-  }
-
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
-  }
-
-  public static Creator<FacebookUser> getCREATOR() {
-    return CREATOR;
-  }
-
-  @Override
-  public int describeContents() {
-    return 0;
-  }
-
-  @Override
-  public void writeToParcel(Parcel dest, int flags) {
-    dest.writeString(accessToken);
-    dest.writeString(userID);
-    dest.writeString(fullName);
-    dest.writeString(userEmail);
-    dest.writeString(userImage);
+  public void setUserProfilePicture(String userProfilePicture) {
+    this.userProfilePicture = userProfilePicture;
   }
 }

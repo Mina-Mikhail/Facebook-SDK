@@ -29,7 +29,11 @@ android.defaultConfig.manifestPlaceholders = [
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  //noinspection GradleCompatible
   implementation "com.android.support:appcompat-v7:$support_version"
+
+  implementation "com.squareup.picasso:picasso:$picasso"
 
   testImplementation "junit:junit:$junit"
   androidTestImplementation "com.android.support.test:runner:$support_test_runner"
