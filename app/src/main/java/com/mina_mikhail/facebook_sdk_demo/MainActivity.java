@@ -39,7 +39,7 @@ public class MainActivity
   }
 
   @Override
-  public void onFbSignInSuccess(FacebookUser facebookUser) {
+  public void onLogInSuccess(FacebookUser facebookUser) {
     Picasso.get().load(facebookUser.getUserProfilePicture()).into(userPhoto);
     userID.setText(facebookUser.getUserID());
     userAccessToken.setText(facebookUser.getAccessToken());
@@ -50,7 +50,7 @@ public class MainActivity
   }
 
   @Override
-  public void onFbSignInFail(int errorType, String errorMsg) {
+  public void onLogInFail(int errorType, String errorMsg) {
     Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
   }
 }

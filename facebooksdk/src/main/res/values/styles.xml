@@ -8,13 +8,4 @@
     <item name="colorAccent">@color/libAccentColor</item>
   </style>
 
-  <style name="LibraryTheme.NoActionBar">
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-
-    <item name="colorPrimary">@color/libPrimaryColor</item>
-    <item name="colorPrimaryDark">@color/libPrimaryDarkColor</item>
-    <item name="colorAccent">@color/libAccentColor</item>
-  </style>
-
 </resources>

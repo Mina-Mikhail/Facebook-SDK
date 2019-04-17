@@ -4,7 +4,7 @@ import com.mina_mikhail.facebook_sdk.data.model.FacebookUser;
 
 public interface FacebookResponse {
 
-  void onFbSignInSuccess(FacebookUser facebookUser);
+  void onLogInSuccess(FacebookUser facebookUser);
 
-  void onFbSignInFail(int errorType, String errorMsg);
+  void onLogInFail(int errorType, String errorMsg);
 }

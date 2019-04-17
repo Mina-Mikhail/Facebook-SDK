@@ -59,8 +59,7 @@ public class FacebookLogInActivity
     makeStatusBarTransparent();
 
     if (!NetworkUtils.isNetworkConnected(this)) {
-      getResponse()
-          .onFbSignInFail(ERROR_NO_INTERNET, getResources().getString(R.string.no_internet));
+      getResponse().onLogInFail(ERROR_NO_INTERNET, getResources().getString(R.string.no_internet));
       finish();
     } else {
       initFacebook();
@@ -98,13 +97,13 @@ public class FacebookLogInActivity
   @Override
   public void onCancel() {
     getResponse()
-        .onFbSignInFail(ERROR_USER_CANCELLED, getResources().getString(R.string.user_cancelled));
+        .onLogInFail(ERROR_USER_CANCELLED, getResources().getString(R.string.user_cancelled));
     finish();
   }
 
   @Override
   public void onError(FacebookException error) {
-    getResponse().onFbSignInFail(ERROR_OTHER, getResources().getString(R.string.some_error));
+    getResponse().onLogInFail(ERROR_OTHER, getResources().getString(R.string.some_error));
 
     if (error instanceof FacebookAuthorizationException) {
       logOut();
@@ -125,7 +124,7 @@ public class FacebookLogInActivity
     new Handler().postDelayed(() -> {
       logOut();
       hideLoading();
-      getResponse().onFbSignInSuccess(user);
+      getResponse().onLogInSuccess(user);
       finish();
     }, 1000);
   }
@@ -158,7 +157,7 @@ public class FacebookLogInActivity
   @Override
   public void onBackPressed() {
     getResponse()
-        .onFbSignInFail(ERROR_USER_CANCELLED, getResources().getString(R.string.user_cancelled));
+        .onLogInFail(ERROR_USER_CANCELLED, getResources().getString(R.string.user_cancelled));
     finish();
   }
 }
