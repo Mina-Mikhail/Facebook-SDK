@@ -135,8 +135,8 @@ public class FacebookLogInActivity
     LoginManager.getInstance().logOut();
   }
 
-  private Facebook getFacebookInstance() {
-    return Facebook.getInstance();
+  private FacebookSDK getFacebookInstance() {
+    return FacebookSDK.getInstance();
   }
 
   private List<String> getPermissions() {

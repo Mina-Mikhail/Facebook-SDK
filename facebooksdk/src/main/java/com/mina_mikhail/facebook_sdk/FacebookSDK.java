@@ -13,18 +13,18 @@ import java.util.List;
 import static com.mina_mikhail.facebook_sdk.utils.Constants.FB_USER_EMAIL;
 import static com.mina_mikhail.facebook_sdk.utils.Constants.FB_USER_PROFILE_PIC;
 
-public class Facebook {
+public class FacebookSDK {
 
   @SuppressLint("StaticFieldLeak")
-  private static volatile Facebook INSTANCE;
+  private static volatile FacebookSDK INSTANCE;
 
   private Context context;
   private List<String> permissions;
   private FacebookResponse response;
 
-  public static synchronized Facebook getInstance() {
+  public static synchronized FacebookSDK getInstance() {
     if (INSTANCE == null) {
-      INSTANCE = new Facebook();
+      INSTANCE = new FacebookSDK();
     }
     return INSTANCE;
   }

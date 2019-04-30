@@ -23,8 +23,8 @@ android {
 }
 
 android.defaultConfig.manifestPlaceholders = [
-    facebookAppId: "308403946540192",
-    facebookAppScheme: "fb308403946540192"
+    facebookAppId: "YIUR_APP_ID",
+    facebookAppScheme: "YIUR_APP_SCHEME"
 ]
 
 dependencies {

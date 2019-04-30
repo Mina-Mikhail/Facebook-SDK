@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.mina_mikhail.facebook_sdk.Facebook;
+import com.mina_mikhail.facebook_sdk.FacebookSDK;
 import com.mina_mikhail.facebook_sdk.callback.FacebookResponse;
 import com.mina_mikhail.facebook_sdk.data.model.FacebookUser;
 import com.squareup.picasso.Picasso;
@@ -35,7 +35,7 @@ public class MainActivity
     userEmail = findViewById(R.id.tv_user_email);
 
     findViewById(R.id.btn_log_in).setOnClickListener(
-        v -> Facebook.getInstance().logIn(MainActivity.this, this));
+        v -> FacebookSDK.getInstance().logIn(MainActivity.this, this));
   }
 
   @Override
